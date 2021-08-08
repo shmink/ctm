@@ -5,7 +5,7 @@ defmodule Transactions.Merchants do
   alias __MODULE__
   alias Transactions.Repo
 
-  schema "merchant" do
+  schema "merchants" do
     field(:description, :string)
     field(:name, :string)
   end
