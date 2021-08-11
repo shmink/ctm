@@ -1,21 +1,15 @@
-# Transactions
+# CTM test
 
-**TODO: Add description**
+[![Elixir CI](https://github.com/shmink/ctm/actions/workflows/elixir.yml/badge.svg)](https://github.com/shmink/ctm/actions/workflows/elixir.yml)
 
-## Installation
+I approached the test by doing a straightfoward lookup to the database for the names of the merchants. As is obvious from the start however not all descriptions are the same for each merchant as for example DVLA has 4 differrent examples of descriptions.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `transactions` to your list of dependencies in `mix.exs`:
+I implemented a kind of fuzzy search which was a lot of fun. I think I got that part to where I'm happy with it right now based on the data set. Given more time and more data it would be interesting to see what changes and optimisations could be added.
 
-```elixir
-def deps do
-  [
-    {:transactions, "~> 0.1.0"}
-  ]
-end
-```
+You might also see a bit of configuration within the project that I end up using on my personal projects. Just quality of life things.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/transactions](https://hexdocs.pm/transactions).
+### Running the project
 
+Nothing out of the ordinary, just `docker-compose up` for the database.
+
+I did run into some issue with hex an ssl ciphers if I recall correctly. Not sure what changes have been made to elixir/hex since I last used it but `mix local.hex` seemed to fix it for me.
