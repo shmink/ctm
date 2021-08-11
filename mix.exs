@@ -8,7 +8,8 @@ defmodule Transactions.MixProject do
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      test_coverage: [tool: LcovEx, output: "coverage"]
     ]
   end
 
@@ -24,14 +25,16 @@ defmodule Transactions.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.4"},
-      {:postgrex, "~> 0.15.3"}
+      {:postgrex, "~> 0.15.3"},
+      {:lcov_ex, "~> 0.2", only: [:dev, :test], runtime: false}
     ]
   end
 
   defp aliases do
     [
+      test: ["ecto.reset", "test --trace --cover"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seed.exs"]
+      "ecto.setup": ["ecto.create --quiet", "ecto.migrate --quiet", "run priv/repo/seed.exs"]
     ]
   end
 end

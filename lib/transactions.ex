@@ -1,18 +1,10 @@
 defmodule Transactions do
-  @moduledoc """
-  Documentation for `Transactions`.
-  """
+  use Ecto.Schema
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Transactions.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  schema "transaction" do
+    field(:amount, :string)
+    field(:time, :utc_datetime)
+    field(:description, :string)
+    field(:name, :string, default: "Unknown")
   end
 end

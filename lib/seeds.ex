@@ -2,7 +2,7 @@ defmodule Transactions.Seeds do
   alias Transactions.{Repo, Merchants}
 
   def add_default_merchants(merchants) do
-    merchants |> Enum.map(&Repo.insert(&1))
+    merchants |> Enum.map(&Repo.insert!(&1))
   end
 
   def default_merchants do
